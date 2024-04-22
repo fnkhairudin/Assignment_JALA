@@ -16,3 +16,7 @@ def skim(data:pd.DataFrame, name:str):
                 'sample_unique': [data[col].unique() for col in data.columns.values]
                 })
     return summary
+
+# adjusted R2
+def adj_r2(val, rowCount, featureCount):
+    return 1 - (1-val)*(rowCount-1)/(rowCount-featureCount-1)

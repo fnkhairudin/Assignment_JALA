@@ -1,0 +1,14 @@
+numpy
+pandas
+seaborn
+plotly
+matplotlib
+missingno
+scipy
+category_encoders
+scikit-learn
+xgboost
+lightgbm
+catboost
+mlflow
+pickle
