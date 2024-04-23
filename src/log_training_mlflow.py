@@ -2,6 +2,10 @@ import mlflow
 from sklearn.pipeline import Pipeline
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, r2_score
+import sys
+import os
+sys.path.append(os.path.abspath("../src/"))
+from helper import adj_r2
 
 
 # fungsi untuk melakukan model training
@@ -56,6 +60,7 @@ def log_training_model(est,
     'Model' : model_name,
     'MAE': mean_absolute_error(ytrain, ypred),
     'r2_score': r2_score(ytrain, ypred),
+    # 'adjusted_r2': adj_r2(ytrain, ypred),
     **kwargs
     })
 
@@ -63,6 +68,8 @@ def log_training_model(est,
     mlflow.log_metrics({
                     'MAE': mean_absolute_error(ytrain, ypred),
                     'r2_score': r2_score(ytrain, ypred),
+                    # 'adjusted_r2': adj_r2(ytrain, ypred),
+                    **kwargs
                     })
     
     # log model pada mlflow ui
